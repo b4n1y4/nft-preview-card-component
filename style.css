@@ -8,45 +8,85 @@
 body {
   font-family: "Outfit", sans-serif;
   width: 100%;
+  height: 100vh;
   background-color: hsl(217, 54%, 11%);
   font-size: 18px;
+  display: grid;
+  place-items: center;
 }
 
 #card {
   margin: 2rem;
+  /* margin: ; */
   padding: 1.5rem;
   background-color: hsl(216, 50%, 16%);
   border-radius: 15px;
+  box-shadow: 20px 20px  hsl(215, 48%, 10%);
+  max-width: 303px;
 }
 
-.card-content > *{
+.card-content > * {
   margin-bottom: 1rem;
+}
+
+.cover-img-container {
+  position: relative;
+  border-radius: 10px;
+overflow: hidden;
+}
+
+.overlay-container {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s linear;
+  /* visibility: hidden; */
+
+}
+
+.overlay {
+  position: absolute;
+  background-color: hsl(178, 100%, 50%);
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.eye-icon {
+  z-index: 1;
 }
 
 .image-equilibrium {
   width: 100%;
-  border-radius: 10px;
 }
 
 .title {
   font-size: 1.25rem;
+  transition: color 0.2s linear;
+
 }
 
 .info {
   font-size: 0.8em;
   font-weight: 400;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
 }
 
-.price{
-  color:hsl(178, 100%, 50%);
+.price {
+  color: hsl(178, 100%, 50%);
 }
 
-.days{
+.days {
   color: hsl(215, 51%, 70%);
 }
 
-hr{
+hr {
   color: hsl(215, 32%, 27%);
 }
 
@@ -81,7 +121,32 @@ hr{
   font-size: 0.8em;
 }
 
-.creator span {
+.prefix {
   color: hsl(215, 51%, 70%);
 }
 
+.name{
+  transition: color 0.2s linear;
+
+}
+
+/* active states */
+
+.cover-img-container,
+.name,
+.title {
+  cursor: pointer;
+}
+
+.overlay-container:hover {
+  visibility: visible;
+  opacity: 1;
+}
+
+.title:hover{
+  color:hsl(178, 100%, 50%);
+}
+
+.name:hover{
+  color: hsl(178, 100%, 50%);
+}
